@@ -9,7 +9,7 @@ receivers:
     email_configs:
     - smarthost: 'smtp.gmail.com:587'
       auth_username: 'your-from-email'
-      auth_password: your-app-password-without-space
+      auth_password: 'your-app-password-without-space'
       from: 'your-from-email'
       to: 'your-to-email'
       headers:

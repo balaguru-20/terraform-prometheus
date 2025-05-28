@@ -21,7 +21,7 @@ rm -rf /opt/prometheus/prometheus.yml
 rm -rf /opt/alertmanager/alertmanager.yml
 cp prometheus.yml /opt/prometheus/prometheus.yml
 cp alertmanager.yml /opt/alertmanager/alertmanager.yml
-cp alert-rules /opt/prometheus/
+cp -r alert-rules /opt/prometheus/
 
 systemctl start alertmanager
 systemctl enable alertmanager
