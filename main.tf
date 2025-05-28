@@ -5,7 +5,7 @@ resource "aws_instance" "prometheus" {
   subnet_id   = var.subnet_id
 
   
-  user_data = file("prometheus.sh")
+  #user_data = file("prometheus.sh")
   
   tags = {
     Name = "prometheus"
