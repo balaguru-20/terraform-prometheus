@@ -46,6 +46,11 @@ rpm --import gpg.key
 cp grafana.repo /etc/yum.repos.d/grafana.repo
 
 dnf install grafana -y
+
+cp prometheus-ds.yml /etc/grafana/provisioning/datasources/prometheus.yaml
+chown root:grafana /etc/grafana/provisioning/datasources/prometheus.yaml
+chmod 640 /etc/grafana/provisioning/datasources/prometheus.yaml
+
 systemctl daemon-reload
 systemctl start grafana-server
 systemctl enable grafana-server

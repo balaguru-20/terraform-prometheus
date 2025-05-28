@@ -6,7 +6,7 @@ resource "aws_instance" "prometheus" {
 
   
   user_data = file("prometheus.sh")
-  
+  iam_instance_profile        = aws_iam_instance_profile.prometheus_instance_profile.name
   tags = {
     Name = "prometheus"
   }
