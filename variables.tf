@@ -1,4 +1,4 @@
 variable "subnet_id" {
   type    = string
-  default = "subnet-09863c54177764565"
+  default = "subnet-0e41d7408f1e0d564"
 }
