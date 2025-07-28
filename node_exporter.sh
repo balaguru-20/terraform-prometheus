@@ -8,7 +8,7 @@ tar -xzf node_exporter-$VERSION.linux-amd64.tar.gz
 mv node_exporter-$VERSION.linux-amd64 node_exporter
 
 cd /tmp
-git clone https://github.com/DAWS-82S/terraform-prometheus.git
+git clone https://github.com/balaguru-20/terraform-prometheus.git
 cd terraform-prometheus
 cp node_exporter.service /etc/systemd/system/node_exporter.service
 

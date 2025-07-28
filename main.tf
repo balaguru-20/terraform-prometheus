@@ -1,3 +1,4 @@
+# Create prometheus server
 resource "aws_instance" "prometheus" {
   ami                    = "ami-09c813fb71547fc4f" # This is our devops-practice AMI ID
   vpc_security_group_ids = [aws_security_group.prometheus.id]
@@ -13,6 +14,7 @@ resource "aws_instance" "prometheus" {
   depends_on = [aws_instance.node_exporter]
 }
 
+# Before prometheus we created nodes with exporter so that prometheus can scrape targets
 resource "aws_instance" "node_exporter" {
   ami                    = "ami-09c813fb71547fc4f" # This is our devops-practice AMI ID
   vpc_security_group_ids = [aws_security_group.prometheus.id]

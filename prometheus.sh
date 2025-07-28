@@ -2,21 +2,26 @@
 
 PROM_VERSION=3.4.0
 ALERT_MANGER_VERSION=0.28.1
+
+# Downlaoding prometheus server
 cd /opt
 wget https://github.com/prometheus/prometheus/releases/download/v$PROM_VERSION/prometheus-$PROM_VERSION.linux-amd64.tar.gz
 tar -xf  prometheus-$PROM_VERSION.linux-amd64.tar.gz
 mv prometheus-$PROM_VERSION.linux-amd64 prometheus
 
+# Downloading alert Manager
 wget https://github.com/prometheus/alertmanager/releases/download/v$ALERT_MANGER_VERSION/alertmanager-$ALERT_MANGER_VERSION.linux-amd64.tar.gz
 tar -xf alertmanager-$ALERT_MANGER_VERSION.linux-amd64.tar.gz
 mv alertmanager-$ALERT_MANGER_VERSION.linux-amd64 alertmanager
 
+# clonign this repo into temp directory
 cd /tmp
-git clone https://github.com/DAWS-82S/terraform-prometheus.git
+git clone https://github.com/balaguru-20/terraform-prometheus.git
 cd terraform-prometheus
 cp prometheus.service /etc/systemd/system/prometheus.service
 cp alertmanager.service  /etc/systemd/system/alertmanager.service
 
+#Existing default configurations are removed and our configs are copied
 rm -rf /opt/prometheus/prometheus.yml
 rm -rf /opt/alertmanager/alertmanager.yml
 cp prometheus.yml /opt/prometheus/prometheus.yml
