@@ -2,12 +2,12 @@
 resource "aws_iam_policy" "prometheus_ec2_describe_policy" {
   name        = "PrometheusEC2DescribePolicy"
   description = "Allows Prometheus EC2 to describe instances to discover scrape targets"
-  policy      = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17",
     Statement = [
       {
-        Effect   = "Allow",
-        Action   = [
+        Effect = "Allow",
+        Action = [
           "ec2:DescribeInstances",
           "ec2:DescribeTags",
           "ec2:DescribeNetworkInterfaces"
